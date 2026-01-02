@@ -1,6 +1,7 @@
 # Nixpacks configuration for Railway deployment
 [phases.setup]
-nixPkgs = ["python3", "gcc", "gnumake", "pkg-config"]
+# Node.js 20+ and yarn (base), plus Python and build tools for native addons
+nixPkgs = ["nodejs_20", "yarn", "python3", "gcc", "gnumake", "pkg-config"]
 
 [phases.install]
 cmds = ["yarn install --frozen-lockfile"]
