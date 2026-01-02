@@ -11,8 +11,9 @@ cmds = [
   "yarn run build",
   "cp -r public .next/standalone/",
   "cp -r .next/static .next/standalone/.next/",
+  "cp -r drizzle .next/standalone/",
   "mkdir -p .next/standalone/data",
-  "echo '{}' > .next/standalone/data/config.json"
+  "echo '{\"version\":1,\"setupComplete\":false,\"preferences\":{},\"personalization\":{},\"modelProviders\":[],\"search\":{\"searxngURL\":\"\"}}' > .next/standalone/data/config.json"
 ]
 
 [start]
