@@ -1,13 +1,19 @@
 # Nixpacks configuration for Railway deployment
 [phases.setup]
-# Node.js 20+ and yarn (base), plus Python and build tools for native addons
-nixPkgs = ["nodejs_20", "yarn", "python3", "gcc", "gnumake", "pkg-config"]
+# Use Node.js 22 (LTS) for consistency, plus Python and build tools for native addons
+nixPkgs = ["nodejs_22", "yarn", "python3", "gcc", "gnumake", "pkg-config"]
 
 [phases.install]
 cmds = ["yarn install --frozen-lockfile"]
 
 [phases.build]
-cmds = ["yarn run build", "cp -r public .next/standalone/", "cp -r .next/static .next/standalone/.next/"]
+cmds = [
+  "yarn run build",
+  "cp -r public .next/standalone/",
+  "cp -r .next/static .next/standalone/.next/",
+  "mkdir -p .next/standalone/data",
+  "echo '{}' > .next/standalone/data/config.json"
+]
 
 [start]
-cmd = "cd .next/standalone && PORT=${PORT:-3000} node server.js"
+cmd = "cd .next/standalone && node server.js"
