@@ -1,6 +1,11 @@
 [build]
 builder = "nixpacks"
 
+[build.nixpacks]
+# Next.js needs these for the build
+installCmds = ["npm install"]
+buildCmds = ["npm run build"]
+
 [deploy]
 startCommand = "npm run start"
 healthcheckPath = "/"

@@ -1,0 +1,7 @@
+# Ignore the main Dockerfile for Railway deployments
+# Railway will use nixpacks instead, which is simpler and
+# doesn't bundle SearxNG (users should provide SEARXNG_API_URL)
+Dockerfile
+docker-compose.yaml
+entrypoint.sh
+searxng/
