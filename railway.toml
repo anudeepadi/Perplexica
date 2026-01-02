@@ -1,10 +1,6 @@
 [build]
 builder = "nixpacks"
 
-[build.nixpacks]
-# Include Python and build tools for native addons (better-sqlite3)
-aptPkgs = ["python3", "build-essential"]
-
 [deploy]
 startCommand = "node .next/standalone/server.js"
 healthcheckPath = "/"
