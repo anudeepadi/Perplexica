@@ -3,6 +3,7 @@ services:
     image: itzcrazykns1337/perplexica:latest
     build:
       context: .
+      dockerfile: Dockerfile.bundled
     ports:
       - '3000:3000'
     volumes:
